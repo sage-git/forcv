@@ -5,7 +5,7 @@ ForCV
 
 Fortran wrapper of OpenCV
 
-### History 
+### History
 
 Just beginning.
 
@@ -16,8 +16,8 @@ OpenCV development libraries
 ### Install
 
 ```bash
-git clone somewhere
-cd ForCV
+git clone https://github.com/sage-git/forcv.git
+cd forcv
 mkdir build
 cd build
 cmake ..
