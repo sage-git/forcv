@@ -1,0 +1,10 @@
+cmake_minimum_required(VERSION 2.6)
+project(forCV)
+enable_language(Fortran)
+option(examples "Build example programs" ON)
+add_subdirectory("${PROJECT_SOURCE_DIR}/src")
+
+if(examples)
+   find_package(OpenCV REQUIRED core highgui)
+   add_subdirectory("${PROJECT_SOURCE_DIR}/example")
+endif()
