@@ -1,19 +1,19 @@
 ForCV
 =====
 
-## What's this
+### What's this
 
 Fortran wrapper of OpenCV
 
-## History 
+### History 
 
 Just beginning.
 
-## Requirements
+### Requirements
 
 OpenCV development libraries
 
-#### Install
+### Install
 
 ```bash
 git clone somewhere
@@ -42,7 +42,7 @@ gfortran -I/usr/local/include -o test displayTest.f90 -L/usr/local/lib -lforcv_c
 
 ---
 
-#### TODO
+### TODO
 
 * Add more fucntions and parameters.
 * Serve some wrapper subroutines that have fortran-friendly interfaces.
