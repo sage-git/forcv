@@ -1,6 +1,13 @@
 module forCV_types
    use,intrinsic :: iso_c_binding
    implicit none
+   type,bind(C) :: CvMat
+     integer(c_int) :: type
+     integer(c_int) :: step
+     type(c_ptr) :: data
+     integer(c_int) :: rows
+     integer(c_int) :: cols
+   end type
    type,bind(C) :: CvSize
      integer(c_int) :: width
      integer(c_int) :: height
@@ -61,5 +68,25 @@ module forCV_types
    integer(c_int),parameter :: IPL_BORDER_REPLICATE = 1
    integer(c_int),parameter :: IPL_BORDER_REFLECT = 2
    integer(c_int),parameter :: IPL_BORDER_WRAP = 3
-
+contains
+!--------------------------
+!  functions defined as macro
+!--------------------------
+   ! get reference to pixel at (col,row),
+   ! for multi-channel images (col) should be multiplied by number of channels
+   function CV_IMAGE_ELEM(image, elemtype,row,col)
+      type(IplImage),intent(in) :: image
+      character(len=*),intent(in) :: elemtype
+      integer,intent(in) :: row,col
+      type(c_ptr) :: CV_IMAGE_ELEM
+      integer(c_intptr_t) :: ptr
+      integer(c_intptr_t) :: elemSize
+      character(len=32) :: ptrExpr
+      elemSize = 1
+      write(ptrExpr,*)image%imageData
+      read(ptrExpr,*) ptr
+      ptr = ptr + elemSize*image%widthStep*row + col 
+      write(ptrExpr,*) ptr
+      read(ptrExpr,*) CV_IMAGE_ELEM
+   end function CV_IMAGE_ELEM
 end module forCV_types
