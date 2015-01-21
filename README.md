@@ -25,20 +25,33 @@ make
 sudo make install
 ```
 
-Some example programs are prepared in `build/example`.
-
-- displayTest
-   - Create a window and draw three sine curves
-- fileIOTest
-   - Read png image file and write jpg image file `output.jpg`
-   - Please prepare some png file before run
-
-
-After `sudo make install` with defaut cmake, sample programs can be compiled with:
+After `sudo make install` with defaut cmake, fortran programs use OpenCV can be compiled with:
 
 ```bash
 gfortran -I/usr/local/include -o test displayTest.f90 -L/usr/local/lib -lforcv_core -lforcv_highgui `pkg-config --libs opencv`
 ```
+
+#### Use without Installation
+
+Put all src/*.f90 files on your project directory.
+These fortran codes can be treated a part of your project.
+
+Add `use forcv_core` `use forcv_highgui` `use forcv_types` lines on in your source code. 
+
+Then add OpenCV libraries (`pkg-config --libs opencv`) on linking.
+
+Be careful not to use the same function/variable names.
+
+### Examples
+
+Some example programs are prepared in `build/example`.
+
+- displayTest
+   * Create a window and draw three sine curves
+- fileIOTest
+   * Read png image file and write jpg image file `output.jpg`
+   * Please prepare some png file before run
+
 
 ---
 
