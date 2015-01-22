@@ -68,6 +68,7 @@ contains
    subroutine fcvReleaseImage(self)
        type(fcvImage) :: self
        call cvReleaseImage(c_loc(self%image))
+       nullify(self%image)
        nullify(self%imageData)
    end subroutine fcvReleaseImage
 

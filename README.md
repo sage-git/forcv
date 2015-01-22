@@ -92,6 +92,7 @@ I haven't tested the functions that do not appeare in these examples.
 
 * Add more fucntions and parameters.
 * Proper treatments for images that are not 8-bit depth and 3 channels
-* CV_IMAGE_ELEM (types.f90) should be treat elemtype argument
+* CV_IMAGE_ELEM (types.f90) should treat elemtype argument
 * Change variable names to more appropriated ones
 * Rearrange library structures if needed
+* Memory leaks detected
