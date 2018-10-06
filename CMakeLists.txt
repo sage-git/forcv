@@ -6,6 +6,6 @@ option(forcvMod "Build forcv module" ON)
 add_subdirectory("${PROJECT_SOURCE_DIR}/src")
 
 if(examples)
-   find_package(OpenCV REQUIRED core highgui)
+   find_package(OpenCV REQUIRED core highgui imgcodecs)
    add_subdirectory("${PROJECT_SOURCE_DIR}/example")
 endif()
